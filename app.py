@@ -67,7 +67,7 @@ async def get_posts_by_user(
     return await _services.get_posts_by_all(db=db)
 
 
-@app.get("/api/posts/{post_id}/", response_model=_schemas.PostResponse)
+@app.get("/api/v1/posts/{post_id}/", response_model=_schemas.PostResponse)
 async def get_post_detail(
         post_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)
 ):
