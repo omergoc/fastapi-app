@@ -5,8 +5,19 @@ from typing import List
 import schemas as _schemas
 import services as _services
 
+from fastapi.middleware.cors import CORSMiddleware
+
+
 app = _fastapi.FastAPI()
 
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 @app.post("/api/v1/register")
 async def register_user(
